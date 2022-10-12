@@ -17,7 +17,7 @@ export class TodoService {
     }
     
     public update = async (id: string, todo: Todo) => {
-        await TodoModel.updateOne({ id }, todo)
+        await TodoModel.findByIdAndUpdate(id, todo)
         const updatedTodo: Todo | null = await TodoModel.findById(id)
         return updatedTodo
     }

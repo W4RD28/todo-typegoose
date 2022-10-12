@@ -23,8 +23,8 @@ export class TodoController {
     
     public update = async (req: Request, res: Response): Promise<Response> => {
         const { id } = req.params
-        const { todo } = req.body
-        const updatedTodo: Todo | null = await this.todoService.update(id, todo)
+        //const todo = req.body
+        const updatedTodo: Todo | null = await this.todoService.update(id, req.body)
         return res.status(200).json(updatedTodo)
     }
     
